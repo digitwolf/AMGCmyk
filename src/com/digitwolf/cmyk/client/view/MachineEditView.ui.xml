@@ -1,0 +1,105 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:com.github.gwtbootstrap.client.ui">
+	<b:Modal ui:field="modal" title="My Modal" backdrop="STATIC"
+		closeVisible="true" animation="true" dynamicSafe="true">
+		<b:TabPanel>
+			<b:Tab heading="Основные" active="true">
+				<g:HTMLPanel>
+					<b:Paragraph>Имя</b:Paragraph>
+					<b:Tooltip text="Название">
+						<b:TextBox ui:field="nameEditor" pixelSize="500,20" />
+					</b:Tooltip>
+					<b:Paragraph>Описание</b:Paragraph>
+					<b:TextArea ui:field="descriptionEditor" pixelSize="500,100" />
+
+				</g:HTMLPanel>
+			</b:Tab>
+			<b:Tab heading="Бумага">
+				<g:HTMLPanel>
+					
+						<b:Paragraph>Параметры бумаги</b:Paragraph>						
+						
+						<table>
+							<tr>
+								<td><b class="icon-resize-horizontal"/></td>
+								<td><g:Label text="Ширина листа от"/></td>
+								<td><b:IntegerBox ui:field="paperWidthMinEditor" pixelSize="100,20"/></td>
+								<td width="50"><g:Label text="До"/></td>
+								<td><b:IntegerBox ui:field="paperWidthMaxEditor" pixelSize="100,20"/></td>
+							</tr>
+							
+							<tr>
+								<td><b class="icon-resize-vertical"/></td>
+								<td><g:Label text="Высота листа от"/></td>
+								<td><b:IntegerBox ui:field="paperHeightMinEditor" pixelSize="100,20"/></td>
+								<td><g:Label text="До"/></td>
+								<td><b:IntegerBox ui:field="paperHeightMaxEditor" pixelSize="100,20"/></td>
+							</tr>
+							
+							<tr>
+								<td><b class="icon-resize-full"/></td>
+								<td><g:Label text="Толщина листа от"/></td>
+								<td><b:IntegerBox ui:field="paperThickMinEditor" pixelSize="100,20"/></td>
+								<td><g:Label text="До"/></td>
+								<td><b:IntegerBox ui:field="paperThickMaxEditor" pixelSize="100,20"/></td>
+							</tr>
+							
+							<tr>
+								<td><b class="icon-file"/></td>
+								<td><g:Label text="Плотность листа от"/></td>
+								<td><b:IntegerBox ui:field="densityMinEditor" pixelSize="100,20"/></td>
+								<td><g:Label text="До"/></td>
+								<td><b:IntegerBox ui:field="densityMaxEditor" pixelSize="100,20"/></td>
+							</tr>
+						</table>											
+						
+					
+
+				</g:HTMLPanel>
+			</b:Tab>
+			
+			
+			<b:Tab heading="Производительность">
+				<g:HTMLPanel>																	
+							<g:Label text="Еденица измерения производительности"/>
+							<b:TextBox ui:field="productionRateNameEditor"/>
+							
+							<g:Label text="Производительность"/>
+							<b:IntegerBox ui:field="productionRateEditor"/>
+							
+							<g:Label text="Процент отходов, %"/>
+							<b:IntegerBox ui:field="wasteRateEditor"/>
+				</g:HTMLPanel>
+			</b:Tab>
+			
+			<b:Tab heading="Приладка">
+				<g:HTMLPanel>	
+					<b:CheckBox ui:field="sutupRequiredEditor" text="Необходима приладка"/>																
+							
+					<b:Well>
+						<g:Label text="Время приладки, минуты"/>
+						<b:IntegerBox ui:field="setupTimeEditor"/>
+					</b:Well>
+						
+					<b:Well>
+						<g:Label text="Количество листов для приладки"/>
+						<b:IntegerBox ui:field="setupSheetWasteEditor"/>
+					</b:Well>
+					
+					<b:Well>
+						<g:Label text="Дополнительные затраты"/>
+						<b:IntegerBox ui:field="additionalCostsEditor"/>
+					</b:Well>
+							
+					
+							
+				</g:HTMLPanel>
+			</b:Tab>
+			
+		</b:TabPanel>
+		<b:ModalFooter>
+			<b:Button ui:field="saveButton" icon="FILE">Сохранить</b:Button>
+			<b:Button ui:field="cancelButton" icon="OFF">Отмена</b:Button>
+		</b:ModalFooter>
+	</b:Modal>
+</ui:UiBinder> 

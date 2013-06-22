@@ -1,0 +1,21 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder' 
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'
+	xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
+	xmlns:d="urn:import:com.digitwolf.cmyk.client.controls">
+	<g:HTMLPanel>	
+		<div style="width:250px">	
+			<div class="user-thumb-avatar">			
+				<b:Tooltip text="test" animation="true">
+					<b:Image ui:field="avatar" styleName="img-polaroid" pixelSize="32,32"/>
+				</b:Tooltip>
+			</div>
+			<div class="user-thumb-info">
+				<b:Label ui:field="loginLabel"/>
+				<b:NavLink ui:field="loginLink" icon="LOCK">Войти</b:NavLink>
+				<b:NavLink ui:field="exitLink" icon="OFF" visible="false">Выйти</b:NavLink>
+				<b:NavLink ui:field="adminLink" href="/_ah/admin" visible="false">Админка</b:NavLink>
+			</div>
+			<div style="clear:both"></div>
+		</div>     
+	</g:HTMLPanel> 
+</ui:UiBinder>
