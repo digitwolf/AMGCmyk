@@ -5,12 +5,7 @@ package com.digitwolf.cmyk.client.view;
 
 import com.digitwolf.cmyk.client.models.Machine;
 import com.digitwolf.cmyk.client.presenter.MachineEditPresenter.Display;
-import com.github.gwtbootstrap.client.ui.Button;
-import com.github.gwtbootstrap.client.ui.CheckBox;
-import com.github.gwtbootstrap.client.ui.IntegerBox;
-import com.github.gwtbootstrap.client.ui.Modal;
-import com.github.gwtbootstrap.client.ui.TextArea;
-import com.github.gwtbootstrap.client.ui.TextBox;
+import com.github.gwtbootstrap.client.ui.*;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
@@ -46,7 +41,7 @@ public class MachineEditView extends Composite implements Editor<Machine>, Displ
 	@UiField
 	TextArea descriptionEditor;
 	
-	// PAPAER-----------------------
+	// PAPER-----------------------
 	
 	@UiField
 	IntegerBox paperWidthMinEditor;
@@ -84,8 +79,8 @@ public class MachineEditView extends Composite implements Editor<Machine>, Displ
 	
 	// SETUP -----------------------
 	@UiField
-	CheckBox sutupRequiredEditor;
-	
+	CheckBox setupRequiredEditor;
+
 	@UiField
 	IntegerBox setupTimeEditor;
 	
@@ -99,17 +94,17 @@ public class MachineEditView extends Composite implements Editor<Machine>, Displ
 	
 	@UiField
 	Button saveButton;
-	
+
 	@UiField
 	Button cancelButton;
 
 	@SuppressWarnings("unused")
 	private Machine machine;
-	
+
 	public MachineEditView() {
-		uiBinder.createAndBindUi(this);		
+        initWidget(uiBinder.createAndBindUi(this));
 		editorDriver = GWT.create(MachineEditorDriver.class);
-		editorDriver.initialize(this);         
+		editorDriver.initialize(this);
 	}
 
 	@Override

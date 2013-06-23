@@ -1,6 +1,7 @@
 package com.digitwolf.cmyk.client.modules.client;
 
 import com.digitwolf.cmyk.client.presenter.AppPresenter;
+import com.digitwolf.cmyk.client.presenter.MachineEditPresenter;
 import com.digitwolf.cmyk.client.presenter.MainPresenter;
 import com.digitwolf.cmyk.client.view.MainView;
 import com.digitwolf.cmyk.client.view.MenuView;
@@ -26,4 +27,6 @@ public interface CmykWidgetGinjector extends Ginjector {
     MainPresenter getMainPresenter();
     MainView getMainView();
     MenuView getMenuView();
+
+    MachineEditPresenter getMachineEditPresenter();
 }

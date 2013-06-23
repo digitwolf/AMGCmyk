@@ -5,7 +5,7 @@
 	
 	<g:HTMLPanel>		
 		<b:Heading size="1">Machines</b:Heading>
-		<b:Button ui:field="addButton" styleName="icon-plus-sign"/>
+		<b:Button ui:field="addButton" text="Добавить" />
 		<b:CellTable ui:field="table" condensed="true" striped="true"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

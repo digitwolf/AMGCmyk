@@ -76,7 +76,6 @@ public class Machine implements IsSerializable {
     @Persistent
     private int densityMin;
 
-
     /**
      * Maximum density of the paper, which can be inserted into the machine.
      */
@@ -94,7 +93,7 @@ public class Machine implements IsSerializable {
      * *********************************SETUP*********************
      */
     @Persistent
-    private boolean sutupRequired;
+    private boolean setupRequired;
 
     /**
      * Time for the machine setup
@@ -156,7 +155,7 @@ public class Machine implements IsSerializable {
         this.description = description;
     }
 
-    public float getPaperWidthMin() {
+    public int getPaperWidthMin() {
         return paperWidthMin;
     }
 
@@ -164,7 +163,7 @@ public class Machine implements IsSerializable {
         this.paperWidthMin = paperWidthMin;
     }
 
-    public float getPaperHeightMin() {
+    public int getPaperHeightMin() {
         return paperHeightMin;
     }
 
@@ -172,7 +171,7 @@ public class Machine implements IsSerializable {
         this.paperHeightMin = paperHeightMin;
     }
 
-    public float getPaperWidthMax() {
+    public int getPaperWidthMax() {
         return paperWidthMax;
     }
 
@@ -180,7 +179,7 @@ public class Machine implements IsSerializable {
         this.paperWidthMax = paperWidthMax;
     }
 
-    public float getPaperHeightMax() {
+    public int getPaperHeightMax() {
         return paperHeightMax;
     }
 
@@ -188,7 +187,7 @@ public class Machine implements IsSerializable {
         this.paperHeightMax = paperHeightMax;
     }
 
-    public float getDensityMin() {
+    public int getDensityMin() {
         return densityMin;
     }
 
@@ -196,7 +195,7 @@ public class Machine implements IsSerializable {
         this.densityMin = densityMin;
     }
 
-    public float getDensityMax() {
+    public int getDensityMax() {
         return densityMax;
     }
 
@@ -220,12 +219,12 @@ public class Machine implements IsSerializable {
         this.productionRate = productionRate;
     }
 
-    public boolean isSutupRequired() {
-		return sutupRequired;
+    public boolean issetupRequired() {
+		return setupRequired;
 	}
 
-	public void setSutupRequired(boolean sutupRequired) {
-		this.sutupRequired = sutupRequired;
+	public void setsetupRequired(boolean setupRequired) {
+		this.setupRequired = setupRequired;
 	}
 
 	public int getSetupTime() {
@@ -244,7 +243,7 @@ public class Machine implements IsSerializable {
         this.setupSheetWaste = setupSheetWaste;
     }
 
-    public float getAdditionalCosts() {
+    public int getAdditionalCosts() {
         return additionalCosts;
     }
 
@@ -252,7 +251,7 @@ public class Machine implements IsSerializable {
         this.additionalCosts = additionalCosts;
     }
 
-    public float getWasteRate() {
+    public int getWasteRate() {
         return wasteRate;
     }
 
@@ -270,5 +269,29 @@ public class Machine implements IsSerializable {
 
     public Machine() {
 
+    }
+
+    public int getPaperThickMin() {
+        return paperThickMin;
+    }
+
+    public void setPaperThickMin(int paperThickMin) {
+        this.paperThickMin = paperThickMin;
+    }
+
+    public int getPaperThickMax() {
+        return paperThickMax;
+    }
+
+    public void setPaperThickMax(int paperThickMax) {
+        this.paperThickMax = paperThickMax;
+    }
+
+    public int getPaperLoadSize() {
+        return paperLoadSize;
+    }
+
+    public void setPaperLoadSize(int paperLoadSize) {
+        this.paperLoadSize = paperLoadSize;
     }
 }

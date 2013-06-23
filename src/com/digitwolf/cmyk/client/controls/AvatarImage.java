@@ -12,7 +12,7 @@ public class AvatarImage extends Image {
 	/**
      * Constructor
      * 
-     * @param email
+     * @param avatarService
      */
 	@UiConstructor
 	@Inject

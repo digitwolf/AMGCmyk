@@ -14,17 +14,16 @@
  *******************************************************************************/
 package com.digitwolf.cmyk.server;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import javax.jdo.PersistenceManager;
-
 import com.digitwolf.cmyk.client.DataService;
 import com.digitwolf.cmyk.client.models.Machine;
 import com.digitwolf.cmyk.server.dal.PMF;
-
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+
+import javax.jdo.PersistenceManager;
+import javax.jdo.Query;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class DataServiceImpl extends RemoteServiceServlet implements DataService {
 	/**
@@ -61,7 +60,9 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
 	private static <T> Collection<T> query(String query) {
         PersistenceManager pm = PMF.get().getPersistenceManager();
         try {
-            List<T> flights = (List<T>) pm.newQuery(query).execute();
+            Query q = pm.newQuery(query);
+            q.setOrdering("name asc");
+            List<T> flights = (List<T>) q.execute();
             return pm.detachCopyAll(flights);
         } finally {
             pm.close();

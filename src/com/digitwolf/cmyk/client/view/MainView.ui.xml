@@ -4,6 +4,6 @@
     <g:HTMLPanel>
         <g:HTMLPanel ui:field="menuContainer"/>
 
-        <b:Container ui:field="container"/>
+        <b:Container ui:field="container" />
      </g:HTMLPanel>
 </ui:UiBinder>

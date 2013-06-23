@@ -1,6 +1,7 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:com.github.gwtbootstrap.client.ui">
-	<b:Modal ui:field="modal" title="My Modal" backdrop="STATIC"
+	<g:HTMLPanel>
+    <b:Modal ui:field="modal" title="My Modal" backdrop="STATIC"
 		closeVisible="true" animation="true" dynamicSafe="true">
 		<b:TabPanel>
 			<b:Tab heading="Основные" active="true">
@@ -74,7 +75,7 @@
 			
 			<b:Tab heading="Приладка">
 				<g:HTMLPanel>	
-					<b:CheckBox ui:field="sutupRequiredEditor" text="Необходима приладка"/>																
+					<b:CheckBox ui:field="setupRequiredEditor" text="Необходима приладка"/>
 							
 					<b:Well>
 						<g:Label text="Время приладки, минуты"/>
@@ -102,4 +103,5 @@
 			<b:Button ui:field="cancelButton" icon="OFF">Отмена</b:Button>
 		</b:ModalFooter>
 	</b:Modal>
+    </g:HTMLPanel>
 </ui:UiBinder> 
