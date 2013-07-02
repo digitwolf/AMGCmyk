@@ -7,5 +7,7 @@
 		<b:Heading size="1">Machines</b:Heading>
 		<b:Button ui:field="addButton" text="Добавить" />
 		<b:CellTable ui:field="table" condensed="true" striped="true"/>
+        <b:DataGrid ui:field="dataGrid" condensed="true" striped="true"/>
+        <b:SimplePager ui:field="pager" location="CENTER"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

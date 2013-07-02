@@ -31,18 +31,18 @@
 							
 							<tr>
 								<td><b class="icon-resize-vertical"/></td>
-								<td><g:Label text="Высота листа от"/></td>
-								<td><b:IntegerBox ui:field="paperHeightMinEditor" pixelSize="100,20"/></td>
+								<td><g:Label text="Длина листа от"/></td>
+								<td><b:IntegerBox ui:field="paperLengthMinEditor" pixelSize="100,20"/></td>
 								<td><g:Label text="До"/></td>
-								<td><b:IntegerBox ui:field="paperHeightMaxEditor" pixelSize="100,20"/></td>
+								<td><b:IntegerBox ui:field="paperLengthMaxEditor" pixelSize="100,20"/></td>
 							</tr>
 							
 							<tr>
 								<td><b class="icon-resize-full"/></td>
 								<td><g:Label text="Толщина листа от"/></td>
-								<td><b:IntegerBox ui:field="paperThickMinEditor" pixelSize="100,20"/></td>
+								<td><b:IntegerBox ui:field="paperHeightMinEditor" pixelSize="100,20"/></td>
 								<td><g:Label text="До"/></td>
-								<td><b:IntegerBox ui:field="paperThickMaxEditor" pixelSize="100,20"/></td>
+								<td><b:IntegerBox ui:field="paperHeightMaxEditor" pixelSize="100,20"/></td>
 							</tr>
 							
 							<tr>

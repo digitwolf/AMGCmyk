@@ -1,5 +1,6 @@
 package com.digitwolf.cmyk.client.modules.client;
 
+import com.digitwolf.cmyk.client.controllers.DataController;
 import net.customware.gwt.presenter.client.DefaultEventBus;
 import net.customware.gwt.presenter.client.EventBus;
 import net.customware.gwt.presenter.client.gin.AbstractPresenterModule;
@@ -53,7 +54,9 @@ public class CmykClientModule extends AbstractPresenterModule {
         bind(DataService.class);
         bind(UserService.class);
         bind(UserServiceAsync.class);
-        
+
+        bind(DataController.class).in(Singleton.class);
+
         // REGISTER SERVICE PROVIDERS
         // Avatar Service
         bind(AvatarService.class).to(GravatarServiceProvider.class).in(Singleton.class);

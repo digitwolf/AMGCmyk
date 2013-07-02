@@ -2,6 +2,7 @@ package com.digitwolf.cmyk.client.events.navigation;
 
 import com.digitwolf.cmyk.client.models.Machine;
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,9 +15,15 @@ public class ShowMachineEditDialogEvent extends GwtEvent<ShowMachineEditDialogEv
     public static Type<ShowMachineEditDialogEventHandler> TYPE = new Type<ShowMachineEditDialogEventHandler>();
 
     final private Machine machine;
+    private AsyncCallback<Machine> callback;
 
     public ShowMachineEditDialogEvent(Machine machine) {
         this.machine = machine;
+    }
+
+    public ShowMachineEditDialogEvent(Machine machine, AsyncCallback<Machine> callback) {
+        this.machine = machine;
+        this.callback = callback;
     }
 
     public Type<ShowMachineEditDialogEventHandler> getAssociatedType() {
@@ -29,5 +36,9 @@ public class ShowMachineEditDialogEvent extends GwtEvent<ShowMachineEditDialogEv
 
     public Machine getMachine() {
         return machine;
+    }
+
+    public AsyncCallback<Machine> getCallback() {
+        return callback;
     }
 }

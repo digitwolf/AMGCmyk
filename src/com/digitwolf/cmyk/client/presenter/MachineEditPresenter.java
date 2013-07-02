@@ -6,6 +6,7 @@ import com.digitwolf.cmyk.client.models.Machine;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 
 import net.customware.gwt.presenter.client.EventBus;
@@ -16,19 +17,23 @@ public class MachineEditPresenter extends WidgetPresenter<MachineEditPresenter.D
 
 
     private DataController dataController;
+    private AsyncCallback<Machine> machinePersistCallback;
+
 
     /**
      * Creates a new machine and opens a modal window to edit it.
      */
     public void createNewMachine() {
-        editMachine(new Machine());
+        editMachine(new Machine(), null);
     }
 
     /**
      * Open the machine editor window
      * @param machine entity to update
+     * @param callback
      */
-    public void editMachine(Machine machine) {
+    public void editMachine(Machine machine, AsyncCallback<Machine> callback) {
+        this.machinePersistCallback = callback;
         getDisplay().bindEditor(machine);
         getDisplay().show();
     }
@@ -55,8 +60,11 @@ public class MachineEditPresenter extends WidgetPresenter<MachineEditPresenter.D
 	@Override
 	protected void onBind() {
 		registerHandler(eventBus.addHandler(ShowAddMachineDialogEvent.TYPE, new ShowAddMachineDialogEvent.Handler() {
+
+
             @Override
-            public void ShowAddMachineDialog(ShowAddMachineDialogEvent event) {
+            public void ShowAddMachineDialog(ShowAddMachineDialogEvent event, AsyncCallback<Machine> callback) {
+                machinePersistCallback = callback;
                 display.show();
             }
         }));
@@ -65,7 +73,7 @@ public class MachineEditPresenter extends WidgetPresenter<MachineEditPresenter.D
             @Override
             public void onClick(ClickEvent event) {
                 //TODO implement
-                dataController.addMachine(getDisplay().getFlush());
+                dataController.addMachineAsync(getDisplay().getFlush(), machinePersistCallback);
                 getDisplay().hide();
             }
         }));

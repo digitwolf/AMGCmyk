@@ -2,11 +2,7 @@ package com.digitwolf.cmyk.client.models;
 
 import com.google.gwt.user.client.rpc.IsSerializable;
 
-import javax.jdo.annotations.Extension;
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
+import javax.jdo.annotations.*;
 import java.util.List;
 
 /**
@@ -18,6 +14,7 @@ import java.util.List;
  */
 @PersistenceCapable(detachable = "true")
 public class Machine implements IsSerializable {
+
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     @Extension(vendorName="datanucleus", key="gae.encoded-pk", value="true")
@@ -46,7 +43,7 @@ public class Machine implements IsSerializable {
      * Minimal height of the paper, which can be inserted into the machine.
      */
     @Persistent
-    private int paperHeightMin;
+    private int paperLengthMin;
 
 
     /**
@@ -59,13 +56,13 @@ public class Machine implements IsSerializable {
      * Maximum height of the paper, which can be inserted into the machine.
      */
     @Persistent
+    private int paperLengthMax;
+    
+    @Persistent
+    private int paperHeightMin;
+    
+    @Persistent
     private int paperHeightMax;
-    
-    @Persistent
-    private int paperThickMin;
-    
-    @Persistent
-    private int paperThickMax;
 
     @Persistent
     private int paperLoadSize;
@@ -123,6 +120,12 @@ public class Machine implements IsSerializable {
     @Persistent(mappedBy = "machine")
     private List<MachineProperty> extraProperties;
 
+    /**
+     * List of technological processes which can be comited by the machine.
+     */
+    @Persistent(mappedBy = "machine")
+    private List<Techprocess> techprocesses;
+
     public String getId() {
         return id;
     }
@@ -163,12 +166,12 @@ public class Machine implements IsSerializable {
         this.paperWidthMin = paperWidthMin;
     }
 
-    public int getPaperHeightMin() {
-        return paperHeightMin;
+    public int getPaperLengthMin() {
+        return paperLengthMin;
     }
 
-    public void setPaperHeightMin(int paperHeightMin) {
-        this.paperHeightMin = paperHeightMin;
+    public void setPaperLengthMin(int paperLengthMin) {
+        this.paperLengthMin = paperLengthMin;
     }
 
     public int getPaperWidthMax() {
@@ -179,12 +182,12 @@ public class Machine implements IsSerializable {
         this.paperWidthMax = paperWidthMax;
     }
 
-    public int getPaperHeightMax() {
-        return paperHeightMax;
+    public int getPaperLengthMax() {
+        return paperLengthMax;
     }
 
-    public void setPaperHeightMax(int paperHeightMax) {
-        this.paperHeightMax = paperHeightMax;
+    public void setPaperLengthMax(int paperLengthMax) {
+        this.paperLengthMax = paperLengthMax;
     }
 
     public int getDensityMin() {
@@ -271,20 +274,20 @@ public class Machine implements IsSerializable {
 
     }
 
-    public int getPaperThickMin() {
-        return paperThickMin;
+    public int getPaperHeightMin() {
+        return paperHeightMin;
     }
 
-    public void setPaperThickMin(int paperThickMin) {
-        this.paperThickMin = paperThickMin;
+    public void setPaperHeightMin(int paperHeightMin) {
+        this.paperHeightMin = paperHeightMin;
     }
 
-    public int getPaperThickMax() {
-        return paperThickMax;
+    public int getPaperHeightMax() {
+        return paperHeightMax;
     }
 
-    public void setPaperThickMax(int paperThickMax) {
-        this.paperThickMax = paperThickMax;
+    public void setPaperHeightMax(int paperHeightMax) {
+        this.paperHeightMax = paperHeightMax;
     }
 
     public int getPaperLoadSize() {
@@ -293,5 +296,13 @@ public class Machine implements IsSerializable {
 
     public void setPaperLoadSize(int paperLoadSize) {
         this.paperLoadSize = paperLoadSize;
+    }
+
+    public List<Techprocess> getTechprocesses() {
+        return techprocesses;
+    }
+
+    public void setTechprocesses(List<Techprocess> techprocesses) {
+        this.techprocesses = techprocesses;
     }
 }

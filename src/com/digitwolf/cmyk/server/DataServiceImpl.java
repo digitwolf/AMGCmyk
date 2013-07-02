@@ -50,10 +50,10 @@ public class DataServiceImpl extends RemoteServiceServlet implements DataService
     	PersistenceManager pm = PMF.get().getPersistenceManager();
         try {
             pm.makePersistent(machine);
+            return pm.detachCopy(machine);
         } finally {
             pm.close();
         }
-        return machine;
     }
     
     @SuppressWarnings("unchecked")

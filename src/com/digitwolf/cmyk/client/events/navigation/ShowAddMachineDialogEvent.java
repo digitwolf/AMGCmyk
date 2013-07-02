@@ -1,5 +1,7 @@
 package com.digitwolf.cmyk.client.events.navigation;
 
+import com.digitwolf.cmyk.client.models.Machine;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import net.customware.gwt.presenter.client.EventBus;
 
 import com.google.gwt.event.shared.EventHandler;
@@ -9,13 +11,19 @@ import com.google.gwt.event.shared.HandlerRegistration;
 public class ShowAddMachineDialogEvent extends GwtEvent<ShowAddMachineDialogEvent.Handler> {
 	
 	public static final Type<Handler> TYPE = new Type<Handler>();
-	 
-	public ShowAddMachineDialogEvent() {
+    protected AsyncCallback<Machine> callback;
+
+    public ShowAddMachineDialogEvent() {
 		super();		
 	}
+
+    public ShowAddMachineDialogEvent(AsyncCallback<Machine> callback) {
+        super();
+        this.callback = callback;
+    }
 	
 	public interface Handler extends EventHandler {
-	    void ShowAddMachineDialog(ShowAddMachineDialogEvent event);
+	    void ShowAddMachineDialog(ShowAddMachineDialogEvent event, AsyncCallback<Machine> callback);
 	  }
 	
 	 @Override
@@ -25,7 +33,7 @@ public class ShowAddMachineDialogEvent extends GwtEvent<ShowAddMachineDialogEven
 	
 	  @Override
 	  protected void dispatch(Handler handler) {
-	    handler.ShowAddMachineDialog(this);
+	    handler.ShowAddMachineDialog(this, callback);
 	  }
 	  
 	  /**
@@ -36,7 +44,7 @@ public class ShowAddMachineDialogEvent extends GwtEvent<ShowAddMachineDialogEven
 	   */
 	  public static HandlerRegistration register(EventBus eventBus, Handler handler) {
 		    return eventBus.addHandler(TYPE, handler);
-		  }
+      }
 	  
 
 }

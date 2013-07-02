@@ -50,16 +50,16 @@ public class MachineEditView extends Composite implements Editor<Machine>, Displ
 	IntegerBox paperWidthMaxEditor;
 	
 	@UiField
+	IntegerBox paperLengthMinEditor;
+	
+	@UiField
+	IntegerBox paperLengthMaxEditor;
+	
+	@UiField
 	IntegerBox paperHeightMinEditor;
 	
 	@UiField
 	IntegerBox paperHeightMaxEditor;
-	
-	@UiField
-	IntegerBox paperThickMinEditor;
-	
-	@UiField
-	IntegerBox paperThickMaxEditor;
 	
 	@UiField
 	IntegerBox densityMinEditor;
